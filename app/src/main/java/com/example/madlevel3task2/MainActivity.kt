@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        fabToggler()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -41,6 +42,17 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // hide the fab (button) when the navcontroller navigated to the add portal fragment
+    private fun fabToggler() {
+        navController.addOnDestinationChangedListener { _,       destination, _ ->
+            if (destination.id in arrayOf(R.id.addPortalFragment)) {
+                btn_add_portal.hide()
+            } else {
+                btn_add_portal.show()
+            }
         }
     }
 }

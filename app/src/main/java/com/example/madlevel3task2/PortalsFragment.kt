@@ -41,4 +41,5 @@ class PortalsFragment : Fragment() {
 
         portalAdapter.notifyDataSetChanged()
     }
+
 }

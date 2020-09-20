@@ -7,21 +7,64 @@
     tools:context=".AddPortalFragment">
 
     <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/name"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/name_txt"
+        app:layout_constraintBottom_toTopOf="@+id/plain_text_input"
+        app:layout_constraintEnd_toEndOf="@+id/url"
+        app:layout_constraintStart_toStartOf="@+id/plain_text_input"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/url"
+        android:layout_width="49dp"
+        android:layout_height="18dp"
+        android:text="@string/url_txt"
+        app:layout_constraintBottom_toTopOf="@+id/plain_text_input2"
+        app:layout_constraintStart_toStartOf="@+id/plain_text_input2"
+        app:layout_constraintTop_toBottomOf="@+id/plain_text_input" />
+
+    <EditText
+        android:id="@+id/plain_text_input"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="7dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/plain_text_input2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="521dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/add_portal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url" />
+
     <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="temp"
+        android:id="@+id/add_portal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="18dp"
+        android:text="@string/add_portal_btn"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toBottomOf="@+id/plain_text_input2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

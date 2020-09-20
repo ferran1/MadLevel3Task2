@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Mad Level 3 Task2</string>
+    <string name ="add_portal_btn">ADD PORTAL</string>
+    <string name ="name_txt">Name</string>
+    <string name ="url_txt">URL</string>
 </resources>
