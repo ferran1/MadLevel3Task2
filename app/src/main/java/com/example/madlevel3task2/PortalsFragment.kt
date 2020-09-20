@@ -1,15 +1,19 @@
 package com.example.madlevel3task2
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.madlevel3task2.models.Portal
 import kotlinx.android.synthetic.main.fragment_portals.*
+import kotlinx.coroutines.MainCoroutineDispatcher
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -17,7 +21,8 @@ import kotlinx.android.synthetic.main.fragment_portals.*
 class PortalsFragment : Fragment() {
 
     private val portals = arrayListOf<Portal>()
-    private val portalAdapter = PortalAdapter(portals)
+    private val portalAdapter =
+        PortalAdapter(portals) { portal: Portal -> portalItemClicked(portal) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +43,7 @@ class PortalsFragment : Fragment() {
         rvPortals.adapter = portalAdapter
 
         observeAddPortalResult()
-//        portalAdapter.notifyDataSetChanged()
+        portalAdapter.notifyDataSetChanged()
     }
 
     // "Listen" for the REQ_PORTAL_KEY from the add portal fragment and check if the bundle returned a portal
@@ -53,7 +58,31 @@ class PortalsFragment : Fragment() {
 
             Log.e("ReminderFragment", "Request triggered, but empty reminder text!")
         }
+    }
 
+    private fun portalItemClicked(portalItem: Portal) {
+//        val builder = CustomTabsIntent.Builder()
+//// modify toolbar color
+//        builder.setToolbarColor(ContextCompat.getColor(MainActivity, R.color.colorPrimary))
+//// add share button to overflow men
+//        builder.addDefaultShareMenuItem()
+//// add menu item to oveflow
+//        builder.addMenuItem("MENU_ITEM_NAME", pendingIntent)
+//// show website title
+//        builder.setShowTitle(true)
+//// modify back button icon
+//        builder.setCloseButtonIcon(bitmap)
+//// menu item icon
+//        builder.setActionButton(bitmap, "Android", pendingIntent, true)
+//// animation for enter and exit of tab            builder.setStartAnimations(this, android.R.anim.fade_in, android.R.anim.fade_out)
+//        builder.setExitAnimations(this, android.R.anim.fade_in, android.R.anim.fade_out)
+//// check is chrome available
+//        val packageName = customTabHelper.getPackageNameToUse(this, WEB_URL_TO_LAUNCH)
+//        if (packageName == null)
+//// if chrome not available open in web view
+//        else {
+//            customTabsIntent.intent.setPackage(packageName) customTabsIntent.launchUrl(this, Uri.parse(WEB_URL_TO_LAUNCH))
+//        }
     }
 }
 
