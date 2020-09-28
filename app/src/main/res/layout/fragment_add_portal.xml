@@ -28,8 +28,8 @@
 
     <EditText
         android:id="@+id/input_name"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="7dp"
@@ -41,8 +41,8 @@
 
     <EditText
         android:id="@+id/input_url"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="521dp"
@@ -54,13 +54,13 @@
 
     <Button
         android:id="@+id/add_portal"
-        android:layout_width="0dp"
+        android:layout_width="340dp"
         android:layout_height="0dp"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="13dp"
         android:layout_marginBottom="18dp"
-        android:text="@string/add_portal_btn"
         android:background="@color/colorPrimaryDark"
+        android:text="@string/add_portal_btn"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

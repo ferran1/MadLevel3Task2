@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -22,7 +23,7 @@ class PortalsFragment : Fragment() {
 
     private val portals = arrayListOf<Portal>()
     private val portalAdapter =
-        PortalAdapter(portals) { portal: Portal -> portalItemClicked(portal) }
+        PortalAdapter(portals, ::portalItemClicked)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,28 +62,20 @@ class PortalsFragment : Fragment() {
     }
 
     private fun portalItemClicked(portalItem: Portal) {
-//        val builder = CustomTabsIntent.Builder()
-//// modify toolbar color
-//        builder.setToolbarColor(ContextCompat.getColor(MainActivity, R.color.colorPrimary))
-//// add share button to overflow men
-//        builder.addDefaultShareMenuItem()
-//// add menu item to oveflow
-//        builder.addMenuItem("MENU_ITEM_NAME", pendingIntent)
-//// show website title
-//        builder.setShowTitle(true)
-//// modify back button icon
-//        builder.setCloseButtonIcon(bitmap)
-//// menu item icon
-//        builder.setActionButton(bitmap, "Android", pendingIntent, true)
-//// animation for enter and exit of tab            builder.setStartAnimations(this, android.R.anim.fade_in, android.R.anim.fade_out)
-//        builder.setExitAnimations(this, android.R.anim.fade_in, android.R.anim.fade_out)
-//// check is chrome available
-//        val packageName = customTabHelper.getPackageNameToUse(this, WEB_URL_TO_LAUNCH)
-//        if (packageName == null)
-//// if chrome not available open in web view
-//        else {
-//            customTabsIntent.intent.setPackage(packageName) customTabsIntent.launchUrl(this, Uri.parse(WEB_URL_TO_LAUNCH))
-//        }
+//        Toast.makeText(context, getString(R.string.app_name), Toast.LENGTH_LONG).show()
+
+        val builder = CustomTabsIntent.Builder()
+            // modify toolbar color
+        builder.setToolbarColor(ContextCompat.getColor(requireActivity(), R.color.colorPrimary))
+            // add share button to overflow men
+        builder.addDefaultShareMenuItem()
+            // show website title
+        builder.setShowTitle(true)
+        builder.setExitAnimations(requireActivity(), android.R.anim.fade_in, android.R.anim.fade_out)
+
+        val customTabsIntent = builder.build()
+
+        customTabsIntent.launchUrl(requireActivity(), Uri.parse(portalItem.url))
     }
 }
 
